@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:game/pages/level/Level.dart';
+import 'package:game/pages/level/playLevel.dart';
 import 'package:game/pages/levelspage/LevelsPage.dart';
 import 'package:game/pages/mainmenu/mainMenu.dart';
 import 'package:game/state/NavigationModel.dart';
@@ -27,7 +28,7 @@ class SokobanState extends State<Sokoban>{
     Pages.RECORDS : Container(),
     Pages.SETTINGS : Container(),
     Pages.LEVELS : LevelsPage(),
-    Pages.LEVEL : Level(),
+    Pages.LEVEL : PlayLevel(),
   };
   @override
   Widget build(BuildContext context) {

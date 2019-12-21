@@ -5,7 +5,9 @@ import 'package:game/gameobjects/object.dart';
 
 class GameBox extends GameObject{
   final double size;
-  GameBox(this.size);
+  final bool isOnSpot;
+  GameBox(this.size, this.isOnSpot);
+
   @override
   State<StatefulWidget> createState() {
       return GameBoxState();
@@ -18,6 +20,9 @@ class GameBoxState extends State<GameBox>{
     return Container(
       height: widget.size,
       width: widget.size,
+      child: Image(
+        image: AssetImage(widget.isOnSpot ? "assets/images/ReadyBox.png" : "assets/images/Box.png"),
+      ),
     );
   }
 

@@ -18,6 +18,9 @@ class WallState extends State<Wall>{
     return Container(
         height: widget.size,
         width: widget.size,
+      child: Image(
+        image: AssetImage("assets/images/wall.png"),
+      ),
     );
   }
 }
