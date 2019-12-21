@@ -1,0 +1,3 @@
+enum Pages{
+  MENU, SETTINGS, RECORDS, LEVELS, LEVEL
+}

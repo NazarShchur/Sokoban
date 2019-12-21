@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:game/pages/level/Level.dart';
+import 'package:game/pages/levelspage/LevelsPage.dart';
+import 'package:game/pages/mainmenu/mainMenu.dart';
+import 'package:game/state/NavigationModel.dart';
+import 'package:game/state/pagesEnum.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(Sokoban());
+  runApp( ChangeNotifierProvider<NavigationModel>(
+      builder: (context)=>NavigationModel(),
+      child:Sokoban()
+  )
+  );
 }
 
 class Sokoban extends StatefulWidget {
@@ -12,17 +22,21 @@ class Sokoban extends StatefulWidget {
 }
 
 class SokobanState extends State<Sokoban>{
-  List<Widget> pages = [
-    Container(),
-    Container(),
-    Container()
-  ]
+  Map<Pages, Widget> pages = {
+    Pages.MENU : MainMenu(),
+    Pages.RECORDS : Container(),
+    Pages.SETTINGS : Container(),
+    Pages.LEVELS : LevelsPage(),
+    Pages.LEVEL : Level(),
+  };
   @override
   Widget build(BuildContext context) {
-    final model = Provider
+    final model = Provider.of<NavigationModel>(context);
    return MaterialApp(
-     home: pages[currentPage]
-   )
+     home: Scaffold(
+       body: pages[model.currentPage],
+     )
+   );
   }
 
 }
