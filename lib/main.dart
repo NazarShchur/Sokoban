@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:game/pages/level/Level.dart';
-import 'package:game/pages/level/playLevel.dart';
-import 'package:game/pages/levelspage/LevelsPage.dart';
-import 'package:game/pages/mainmenu/mainMenu.dart';
-import 'package:game/state/NavigationModel.dart';
-import 'package:game/state/pagesEnum.dart';
+import 'package:game/view/pages/level/playLevel.dart';
+import 'package:game/view/pages/levelspage/LevelsPage.dart';
+import 'package:game/view/pages/mainmenu/mainMenu.dart';
+import 'package:game/view/state/NavigationModel.dart';
+import 'package:game/view/state/pagesEnum.dart';
 import 'package:provider/provider.dart';
 
 void main() {

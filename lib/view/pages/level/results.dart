@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
+
 
 class Results{
+  int level = 0;
   int _moves = 0;
   int _pushes = 0;
-
+  Results(this.level);
   void incPushes(){
     _moves++;
     _pushes++;

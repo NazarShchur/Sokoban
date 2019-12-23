@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:game/gameobjects/coordinate.dart';
-import 'package:game/gameobjects/object.dart';
+import 'object.dart';
 
 class GameBox extends GameObject{
   final double size;

@@ -1,8 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:game/state/NavigationModel.dart';
-import 'package:game/state/pagesEnum.dart';
-import 'package:provider/provider.dart';
 
 class MainMenuButton extends StatelessWidget{
   final String text;

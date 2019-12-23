@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:game/pages/level/Level.dart';
-import 'package:game/pages/level/ResultsAlert.dart';
-import 'package:game/pages/level/results.dart';
-import 'package:game/state/pagesEnum.dart';
+import 'package:game/view/pages/level/ResultsAlert.dart';
+import 'package:game/view/pages/level/results.dart';
+import 'package:game/view/state/pagesEnum.dart';
 
 class NavigationModel extends ChangeNotifier {
   Pages currentPage = Pages.MENU;

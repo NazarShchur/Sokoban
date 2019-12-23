@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:game/pages/level/leveldata.dart';
-import 'package:game/pages/level/results.dart';
-
+import 'package:game/view/pages/level/results.dart';
 class LevelAppBar extends StatelessWidget implements PreferredSizeWidget{
   final Results results;
   final Function function;

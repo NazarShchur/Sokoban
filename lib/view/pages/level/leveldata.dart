@@ -1,17 +1,18 @@
-import 'package:game/data/Levels.dart';
-import 'package:game/gameobjects/coordinate.dart';
-import 'package:game/gameobjects/direction.dart';
-import 'package:game/gameobjects/moveablebox.dart';
-import 'package:game/gameobjects/object.dart';
-import 'package:game/gameobjects/player.dart';
-import 'package:game/gameobjects/wall.dart';
-import 'package:game/pages/level/results.dart';
+
+import 'package:game/model/gameobjects/coordinate.dart';
+import 'package:game/model/gameobjects/direction.dart';
+import 'package:game/model/gameobjects/moveablebox.dart';
+import 'package:game/model/gameobjects/object.dart';
+import 'package:game/model/gameobjects/player.dart';
+import 'package:game/model/gameobjects/wall.dart';
+import 'package:game/view/data/Levels.dart';
+import 'package:game/view/pages/level/results.dart';
 
 class LevelData {
   double tileSize;
   List<String> map = [];
   List<Coordinate> spots = [];
-  Results results = Results();
+  Results results;
   LevelData memento;
   Map<Coordinate, GameObject> mapOfObjects;
 
@@ -37,6 +38,7 @@ class LevelData {
       }
     }
     memento = LevelData.copy(this);
+    results = Results(levelNum);
   }
   LevelData.copy(LevelData data){
     tileSize = data.tileSize;

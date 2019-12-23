@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:game/state/NavigationModel.dart';
-import 'package:game/state/pagesEnum.dart';
+import 'package:game/view/state/NavigationModel.dart';
 import 'package:provider/provider.dart';
 
 class SelectLevelButton extends StatelessWidget{

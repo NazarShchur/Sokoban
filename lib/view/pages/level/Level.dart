@@ -1,15 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:game/gameobjects/coordinate.dart';
-import 'package:game/gameobjects/direction.dart';
-import 'package:game/pages/level/leveldata.dart';
-import 'package:game/gameobjects/spot.dart';
-import 'package:game/pages/level/levelAppBar.dart';
-import 'package:game/state/NavigationModel.dart';
+import 'package:game/model/gameobjects/coordinate.dart';
+import 'package:game/model/gameobjects/direction.dart';
+import 'package:game/model/gameobjects/spot.dart';
+import 'package:game/view/data/Constants.dart';
+import 'package:game/view/state/NavigationModel.dart';
 import 'package:provider/provider.dart';
 import 'package:swipedetector/swipedetector.dart';
-
-import 'levelModel.dart';
+import 'levelAppBar.dart';
+import 'leveldata.dart';
 
 class Level extends StatefulWidget {
   final int levelNum;
@@ -24,7 +23,6 @@ class LevelState extends State<Level> {
   LevelData data;
   @override
   Widget build(BuildContext context) {
-    final LevelModel levelModel = Provider.of<LevelModel>(context);
     final model = Provider.of<NavigationModel>(context);
     final size = MediaQuery.of(context).size.width;
     data = data == null ? LevelData(size, widget.levelNum)
@@ -69,7 +67,12 @@ class LevelState extends State<Level> {
         },
 
         child: Container(
-          color: Colors.blueGrey,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(Constants.CANDIES_BACKGROUND),
+              repeat: ImageRepeat.repeat
+            )
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(data.map.length, (i) {

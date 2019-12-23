@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:game/pages/mainmenu/mainMenuButton.dart';
-import 'package:game/state/pagesEnum.dart';
+
+import 'mainMenuButton.dart';
 
 class MainMenu extends StatelessWidget{
   @override

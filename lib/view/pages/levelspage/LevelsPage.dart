@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:game/data/Levels.dart';
-import 'package:game/pages/levelspage/selectLevelButton.dart';
+import 'package:game/view/data/Levels.dart';
+import 'package:game/view/pages/levelspage/selectLevelButton.dart';
 
 
 class LevelsPage extends StatelessWidget {

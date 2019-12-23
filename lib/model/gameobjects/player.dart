@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:game/gameobjects/object.dart';
+
+import 'object.dart';
 
 class PlayerObj extends GameObject {
   final double tileSize;
