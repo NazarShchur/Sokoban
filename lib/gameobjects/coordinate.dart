@@ -16,6 +16,15 @@ class Coordinate{
       y.hashCode ^
       x.hashCode;
 
+  @override
+  String toString() {
+    return 'Coordinate{x: $x, y: $y}';
+  }
+
+
+  Coordinate clone(){
+    return Coordinate(this.x, this.y);
+  }
 
 
 }

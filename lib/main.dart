@@ -32,11 +32,13 @@ class SokobanState extends State<Sokoban>{
   };
   @override
   Widget build(BuildContext context) {
-    final model = Provider.of<NavigationModel>(context);
    return MaterialApp(
-     home: Scaffold(
-       body: pages[model.currentPage],
-     )
+     debugShowCheckedModeBanner: false,
+     home: MainMenu(),
+     routes: {
+       '/levels' : (context)=>LevelsPage(),
+       "/level"  : (context)=>PlayLevel()
+     },
    );
   }
 

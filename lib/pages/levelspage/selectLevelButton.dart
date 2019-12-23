@@ -12,7 +12,8 @@ class SelectLevelButton extends StatelessWidget{
     final model = Provider.of<NavigationModel>(context);
     return GestureDetector(
       onTap: (){
-        model.startLevel(levelNum);
+        model.setCurrentLevel(levelNum);
+        Navigator.pushNamed(context, "/level");
       },
       child: Container(
         width: 100,

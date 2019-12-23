@@ -7,23 +7,15 @@ class GameBox extends GameObject{
   final double size;
   final bool isOnSpot;
   GameBox(this.size, this.isOnSpot);
-
-  @override
-  State<StatefulWidget> createState() {
-      return GameBoxState();
-  }
-}
-
-class GameBoxState extends State<GameBox>{
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: widget.size,
-      width: widget.size,
+      height: size,
+      width: size,
       child: Image(
-        image: AssetImage(widget.isOnSpot ? "assets/images/ReadyBox.png" : "assets/images/Box.png"),
+        image: AssetImage(isOnSpot ? "assets/images/ReadyBox.png" : "assets/images/Box.png"),
       ),
     );
   }
-
 }
+

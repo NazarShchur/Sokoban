@@ -6,21 +6,15 @@ class Wall extends GameObject{
   final double size;
   Wall(this.size);
   @override
-  State<StatefulWidget> createState() {
-    return WallState();
-  }
-
-}
-
-class WallState extends State<Wall>{
-  @override
   Widget build(BuildContext context) {
     return Container(
-        height: widget.size,
-        width: widget.size,
+      height: size,
+      width: size,
       child: Image(
         image: AssetImage("assets/images/wall.png"),
       ),
     );
   }
+
 }
+

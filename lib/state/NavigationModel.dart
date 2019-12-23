@@ -1,28 +1,40 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:game/pages/level/Level.dart';
+import 'package:game/pages/level/ResultsAlert.dart';
+import 'package:game/pages/level/results.dart';
 import 'package:game/state/pagesEnum.dart';
 
-class NavigationModel extends ChangeNotifier{
+class NavigationModel extends ChangeNotifier {
   Pages currentPage = Pages.MENU;
 
-  void setCurrentPage(Pages toGo){
+  void setCurrentPage(Pages toGo) {
     currentPage = toGo;
     notifyListeners();
   }
 
   int _currentLevel = 1;
-  void startLevel(int levelNum){
+
+  void setCurrentLevel(int i){
+    _currentLevel = i;
+  }
+  void startLevel(int levelNum) {
     currentPage = Pages.LEVEL;
     _currentLevel = levelNum;
     notifyListeners();
   }
 
-  void nextLevel(){
+  void nextLevel() {
     _currentLevel++;
-    notifyListeners();
   }
 
   get currentLevel => _currentLevel;
 
-
+  void showResults(BuildContext context, Results results) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return ResultsAlert(results);
+        });
+  }
 }

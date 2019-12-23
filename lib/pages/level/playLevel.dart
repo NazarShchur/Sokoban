@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:game/pages/level/Level.dart';
+import 'package:game/pages/level/levelModel.dart';
 import 'package:game/state/NavigationModel.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +17,7 @@ class PlayLevelState extends State<PlayLevel>{
   Widget build(BuildContext context) {
     final model = Provider.of<NavigationModel>(context);
     Level level = Level(model.currentLevel);
-    return level;
+    return ChangeNotifierProvider(builder: (BuildContext context) => LevelModel(), child: level);
   }
 
 }

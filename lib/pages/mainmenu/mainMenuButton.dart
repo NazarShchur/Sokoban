@@ -6,14 +6,13 @@ import 'package:provider/provider.dart';
 
 class MainMenuButton extends StatelessWidget{
   final String text;
-  final Pages toGo;
-  MainMenuButton(this.text, this.toGo);
+  final String route;
+  MainMenuButton(this.text, this.route);
   @override
   Widget build(BuildContext context) {
-    final model = Provider.of<NavigationModel>(context);
     return GestureDetector(
       onTap: (){
-        model.setCurrentPage(toGo);
+        Navigator.pushNamed(context, route);
       },
       child: Container(
         decoration: BoxDecoration(
