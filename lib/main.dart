@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp( ChangeNotifierProvider<NavigationModel>(
-      builder: (context)=>NavigationModel(),
+      create: (context)=>NavigationModel(),
       child:Sokoban()
   )
   );

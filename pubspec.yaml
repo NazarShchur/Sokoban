@@ -15,12 +15,12 @@ dependencies:
   cupertino_icons: ^0.1.2
   sqflite: ^1.2.0
   path_provider: any
+  google_sign_in: ^4.1.1
+  firebase_auth: ^0.15.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  floor_generator: ^0.9.0
-  build_runner: ^1.7.1
 
 flutter:
   uses-material-design: true

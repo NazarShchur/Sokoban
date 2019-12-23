@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "643507802608",
+    "firebase_url": "https://sokoban-defad.firebaseio.com",
+    "project_id": "sokoban-defad",
+    "storage_bucket": "sokoban-defad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643507802608:android:d43823eb42ec914f4c0d35",
+        "android_client_info": {
+          "package_name": "com.example.game"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643507802608-vrr1bc2rfld9l7cq63bqhe2a42unooep.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.game",
+            "certificate_hash": "b15fec3127d3c45e7580528799fc5834e9b87750"
+          }
+        },
+        {
+          "client_id": "643507802608-lcg0q4q3qi1a1u2ucr5pmcpirvb3lsci.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWDToo5YJEsJeCsdCIBkKOfZVtX5vNmqc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643507802608-lcg0q4q3qi1a1u2ucr5pmcpirvb3lsci.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
