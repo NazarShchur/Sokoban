@@ -17,6 +17,7 @@ dependencies:
   path_provider: any
   google_sign_in: ^4.1.1
   firebase_auth: ^0.15.3
+  firebase_database: ^3.1.1
 
 dev_dependencies:
   flutter_test:

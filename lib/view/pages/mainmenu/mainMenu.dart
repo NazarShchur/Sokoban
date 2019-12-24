@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:game/controller/dao/FirebaseDao.dart';
 import 'package:game/controller/service/sign_in.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'mainMenuButton.dart';
 
 class MainMenu extends StatelessWidget {
@@ -17,19 +17,14 @@ class MainMenu extends StatelessWidget {
             MainMenuButton("play", "/levels"),
             MainMenuButton("settings", ""),
             MainMenuButton("records", ""),
-            FlatButton(
+            MainMenuButton("shop", "/shop"),
+            FlatButton(child: Text("tap"),
               onPressed: () {
-                signInWithGoogle().whenComplete(() {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return FirstScreen();
-                      },
-                    ),
-                  );
-                });
+              FirebaseUserDao().findById(googleSignIn.currentUser.id).then((u){
+                print(u);
+              });
               },
-              child: Text("SIGN IN"),
+
             )
           ],
         ),
@@ -37,11 +32,4 @@ class MainMenu extends StatelessWidget {
     );
   }
 }
-class FirstScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(color: Colors.blue[100]),
-    );
-  }
-}
+

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:game/view/pages/level/playLevel.dart';
 import 'package:game/view/pages/levelspage/LevelsPage.dart';
 import 'package:game/view/pages/mainmenu/mainMenu.dart';
+import 'package:game/view/pages/shoppage/shopPage.dart';
+import 'package:game/view/pages/welcomepage/WelcomePage.dart';
 import 'package:game/view/state/NavigationModel.dart';
 import 'package:game/view/state/pagesEnum.dart';
 import 'package:provider/provider.dart';
@@ -33,10 +35,12 @@ class SokobanState extends State<Sokoban>{
   Widget build(BuildContext context) {
    return MaterialApp(
      debugShowCheckedModeBanner: false,
-     home: MainMenu(),
+     home: WelcomePage(),
      routes: {
        '/levels' : (context)=>LevelsPage(),
-       "/level"  : (context)=>PlayLevel()
+       "/level"  : (context)=>PlayLevel(),
+       "/menu"  : (context)=>MainMenu(),
+       "/shop" : (context)=>ShopPage(),
      },
    );
   }
