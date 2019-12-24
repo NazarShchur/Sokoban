@@ -9,11 +9,11 @@ class User {
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-        BigInt.parse(json["id"]), json["lastlevel"], json["balance"]);
+        BigInt.parse(json[Fields.ID]), json["lastlevel"], json["balance"]);
   }
 
   Map<String, dynamic> toJson() {
-    return {Fields.USER_ID: _id};
+    return {Fields.ID: _id};
   }
 
   @override

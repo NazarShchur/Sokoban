@@ -5,30 +5,35 @@ import 'package:game/model/entity/User.dart';
 import 'package:game/view/data/Levels.dart';
 import 'package:game/view/pages/levelspage/selectLevelButton.dart';
 
-
 class LevelsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: FutureBuilder<User>(
+    return WillPopScope(
+      onWillPop: () async {
+        Navigator.pushReplacementNamed(context, "/menu");
+        return true;
+      },
+      child: Scaffold(
+          body: FutureBuilder<User>(
         future: UserService().getCurrentUser(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if(snapshot.hasData){
+          if (snapshot.hasData) {
             return GridView.count(
               crossAxisCount: 5,
               children: List.generate(LevelsProvider.countOfLevels, (levelNum) {
-                return SelectLevelButton(levelNum + 1, isLevelAvailable(levelNum + 1, snapshot.data.lastLevel));
+                return SelectLevelButton(levelNum + 1,
+                    _isLevelAvailable(levelNum + 1, snapshot.data.lastLevel));
               }),
             );
-          } else{
-            return CircularProgressIndicator();
+          } else {
+            return Center(child: CircularProgressIndicator());
           }
         },
-      )
+      )),
     );
   }
 
-  bool isLevelAvailable(int levelNum, int userLastLevel){
+  bool _isLevelAvailable(int levelNum, int userLastLevel) {
     return userLastLevel >= levelNum;
   }
 }

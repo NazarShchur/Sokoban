@@ -3,7 +3,7 @@ abstract class LevelsProvider{
     1 : [
       "wwww  ",
       "w xw  ",
-      "w bwww",
+      "w bwww",//todo transfer levels to firebase
       "wnp  w",
       "w    w",
       "w  www",
@@ -29,6 +29,15 @@ abstract class LevelsProvider{
       "wwww  ",
     ],
     4 : [
+      "wwww  ",
+      "w xw  ",
+      "w bwww",
+      "wnp  w",
+      "w    w",
+      "w  www",
+      "wwww  ",
+    ],
+    5 : [
       "wwww  ",
       "w xw  ",
       "w bwww",

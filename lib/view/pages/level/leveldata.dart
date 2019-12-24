@@ -6,7 +6,7 @@ import 'package:game/model/gameobjects/object.dart';
 import 'package:game/model/gameobjects/player.dart';
 import 'package:game/model/gameobjects/wall.dart';
 import 'package:game/view/data/Levels.dart';
-import 'package:game/view/pages/level/results.dart';
+import 'package:game/model/entity/results.dart';
 
 class LevelData {
   double tileSize;
@@ -61,15 +61,12 @@ class LevelData {
             } else {
               mapOfObjects[Coordinate(playerCoordinate.x + 1, playerCoordinate.y)] = null;
               mapOfObjects[Coordinate(playerCoordinate.x + 2, playerCoordinate.y)] = GameBox(tileSize, isBoxOnSpot(Coordinate(playerCoordinate.x + 2, playerCoordinate.y)));
-              results.incPushes();
               movePlayerIcon(direction);
             }
           } else if (mapOfObjects[Coordinate(playerCoordinate.x + 1, playerCoordinate.y)] is Wall) {
 
           } else {
             movePlayerIcon(direction);
-
-            results.incMoves();
           }
         }
         break;
@@ -81,13 +78,11 @@ class LevelData {
             } else {
               mapOfObjects[Coordinate(playerCoordinate.x, playerCoordinate.y - 1)] = null;
               mapOfObjects[Coordinate(playerCoordinate.x, playerCoordinate.y - 2)] = GameBox(tileSize, isBoxOnSpot(Coordinate(playerCoordinate.x, playerCoordinate.y - 2)));
-              results.incPushes();
               movePlayerIcon(direction);
             }
           } else if (mapOfObjects[
               Coordinate(playerCoordinate.x, playerCoordinate.y - 1)] is Wall) {
           } else {
-            results.incMoves();
             movePlayerIcon(direction);
           }
         }
@@ -106,13 +101,11 @@ class LevelData {
             } else {
               mapOfObjects[Coordinate(playerCoordinate.x, playerCoordinate.y + 1)] = null;
               mapOfObjects[Coordinate(playerCoordinate.x, playerCoordinate.y + 2)] = GameBox(tileSize, isBoxOnSpot(Coordinate(playerCoordinate.x, playerCoordinate.y + 2)));
-              results.incPushes();
               movePlayerIcon(direction);
             }
           } else if (mapOfObjects[
               Coordinate(playerCoordinate.x, playerCoordinate.y + 1)] is Wall) {
           } else {
-            results.incMoves();
             movePlayerIcon(direction);
           }
         }
@@ -138,13 +131,11 @@ class LevelData {
                   tileSize,
                   isBoxOnSpot(
                       Coordinate(playerCoordinate.x - 2, playerCoordinate.y)));
-              results.incPushes();
               movePlayerIcon(direction);
             }
           } else if (mapOfObjects[
               Coordinate(playerCoordinate.x - 1, playerCoordinate.y)] is Wall) {
           } else {
-            results.incMoves();
             movePlayerIcon(direction);
           }
         }
@@ -195,6 +186,7 @@ class LevelData {
         break;
     }
     mapOfObjects[playerCoordinate] = PlayerObj(tileSize);
+    results.incMoves();
   }
 
   Coordinate getPlayerCoordinate() =>  mapOfObjects.entries.firstWhere((a)=>a.value is PlayerObj).key;

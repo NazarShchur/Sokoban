@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:game/view/pages/level/results.dart';
+import 'package:game/controller/service/RecordsService.dart';
+import 'package:game/controller/service/UserService.dart';
+import 'package:game/model/entity/results.dart';
 import 'package:game/view/state/NavigationModel.dart';
 import 'package:provider/provider.dart';
 
@@ -10,13 +12,23 @@ class ResultsAlert extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<NavigationModel>(context);
+    BigInt currentUserId = UserService().getCurrentUserId();
     return AlertDialog(
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text("moves: ${results.moves}"),
-          Text("pushes: ${results.pushes}")
-        ],
+      content: FutureBuilder<Results>(
+        future: RecordsService().getRecordsForUserLevel(currentUserId, results.level),
+        builder: (context, snapshot){
+          if(snapshot.hasData){
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text("your moves: ${results.moves}"),
+                Text("your best moves: ${snapshot.data.level != -1 ? snapshot.data.moves : results.moves}")
+              ],
+            );
+          } else {
+            return Center(child: CircularProgressIndicator());
+          }
+        },
       ),
       actions: [
         FlatButton(

@@ -1,10 +1,13 @@
-import 'package:game/controller/dao/FirebaseDao.dart';
+import 'package:game/controller/dao/FireBaseUserDao.dart';
 import 'package:game/controller/service/sign_in.dart';
 import 'package:game/model/entity/User.dart';
 
 class UserService{
   Future<User> getCurrentUser(){
     return FirebaseUserDao().findById(googleSignIn.currentUser.id);
+  }
+  BigInt getCurrentUserId(){
+    return BigInt.parse(googleSignIn.currentUser.id);
   }
 
   Future<void> registerNewUser() async{

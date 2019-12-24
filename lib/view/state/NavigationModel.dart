@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:game/view/pages/level/ResultsAlert.dart';
-import 'package:game/view/pages/level/results.dart';
+import 'package:game/model/entity/results.dart';
 import 'package:game/view/state/pagesEnum.dart';
 
 class NavigationModel extends ChangeNotifier {

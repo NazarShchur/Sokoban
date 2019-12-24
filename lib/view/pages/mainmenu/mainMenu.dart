@@ -1,27 +1,29 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:game/controller/dao/FirebaseDao.dart';
-import 'package:game/controller/service/sign_in.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter/services.dart';
 import 'mainMenuButton.dart';
 
 class MainMenu extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+      child: Scaffold(
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               MainMenuButton("play", "/levels"),
-              MainMenuButton("settings", ""),
+              MainMenuButton("settings", "/settings"),
               MainMenuButton("records", ""),
               MainMenuButton("shop", "/shop"),
             ],
           ),
         ),
+      ),
+      onWillPop: () async {
+        SystemNavigator.pop();
+        return true;
+      },
     );
   }
 }
-

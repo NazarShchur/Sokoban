@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:game/view/pages/level/playLevel.dart';
 import 'package:game/view/pages/levelspage/LevelsPage.dart';
 import 'package:game/view/pages/mainmenu/mainMenu.dart';
+import 'package:game/view/pages/settings/settings.dart';
 import 'package:game/view/pages/shoppage/shopPage.dart';
 import 'package:game/view/pages/welcomepage/WelcomePage.dart';
 import 'package:game/view/state/NavigationModel.dart';
@@ -41,6 +42,7 @@ class SokobanState extends State<Sokoban>{
        "/level"  : (context)=>PlayLevel(),
        "/menu"  : (context)=>MainMenu(),
        "/shop" : (context)=>ShopPage(),
+       "/settings" : (context)=>Settings()
      },
    );
   }

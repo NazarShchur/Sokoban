@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:game/view/pages/level/results.dart';
+import 'package:game/model/entity/results.dart';
 class LevelAppBar extends StatelessWidget implements PreferredSizeWidget{
   final Results results;
   final Function function;
@@ -23,7 +23,6 @@ class LevelAppBar extends StatelessWidget implements PreferredSizeWidget{
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text("moves : ${results.moves}"),
-          Text("pushes : ${results.pushes}"),
         ],
       ),
       actions: [
