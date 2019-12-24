@@ -21,18 +21,16 @@ class ResultsAlert extends StatelessWidget{
       actions: [
         FlatButton(
           onPressed: () {
-            Navigator.pop(context);
-            Navigator.pop(context);
             model.nextLevel();
-            Navigator.pushNamed(context, "/level");
+            Navigator.pop(context);
+            Navigator.popAndPushNamed(context, "/level");
           },
           child: Text("next level"),
 
         ),
         FlatButton(
           onPressed: () {
-            Navigator.pop(context);
-            Navigator.pushNamed(context, "/levels");
+            Navigator.popAndPushNamed(context, "/levels");
           },
           child: Text("back"),
 

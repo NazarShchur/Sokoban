@@ -10,25 +10,17 @@ class MainMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            MainMenuButton("play", "/levels"),
-            MainMenuButton("settings", ""),
-            MainMenuButton("records", ""),
-            MainMenuButton("shop", "/shop"),
-            FlatButton(child: Text("tap"),
-              onPressed: () {
-              FirebaseUserDao().findById(googleSignIn.currentUser.id).then((u){
-                print(u);
-              });
-              },
-
-            )
-          ],
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              MainMenuButton("play", "/levels"),
+              MainMenuButton("settings", ""),
+              MainMenuButton("records", ""),
+              MainMenuButton("shop", "/shop"),
+            ],
+          ),
         ),
-      ),
     );
   }
 }

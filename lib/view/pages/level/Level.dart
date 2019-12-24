@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:game/controller/dao/FirebaseDao.dart';
+import 'package:game/controller/service/UserService.dart';
 import 'package:game/model/gameobjects/coordinate.dart';
 import 'package:game/model/gameobjects/direction.dart';
 import 'package:game/model/gameobjects/spot.dart';
@@ -38,32 +40,16 @@ class LevelState extends State<Level> {
             horizontalSwipeMinVelocity: 1000.0
         ),
         onSwipeDown: () {
-          setState(() {
-            if(data.movePlayer(Direction.DOWN)){
-              model.showResults(context, data.results);
-            }
-          });
+          move(Direction.DOWN, model);
         },
         onSwipeUp: () {
-          setState(() {
-            if(data.movePlayer(Direction.UP)){
-              model.showResults(context, data.results);
-            }
-          });
+          move(Direction.UP, model);
         },
         onSwipeLeft: () {
-          setState(() {
-            if(data.movePlayer(Direction.LEFT)){
-              model.showResults(context, data.results);
-            }
-          });
+          move(Direction.LEFT, model);
         },
         onSwipeRight: () {
-          setState(() {
-            if(data.movePlayer(Direction.RIGHT)){
-              model.showResults(context, data.results);
-            }
-          });
+          move(Direction.RIGHT, model);
         },
 
         child: Container(
@@ -93,6 +79,17 @@ class LevelState extends State<Level> {
   void moveBack(){
     setState(() {
       data.moveBack();
+    });
+  }
+  void endLevel(model){
+    model.showResults(context, data.results);
+    UserService().incrementUserLastLevelAfter(widget.levelNum);
+  }
+  void move(Direction direction, model){
+    setState(() {
+      if(data.movePlayer(direction)){
+        endLevel(model);
+      }
     });
   }
 }

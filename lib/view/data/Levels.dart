@@ -18,7 +18,34 @@ abstract class LevelsProvider{
       "wpwnww",
       "w   w ",
       "wwwww ",
-    ]
+    ],
+    3 : [
+      "wwww  ",
+      "w xw  ",
+      "w bwww",
+      "wnp  w",
+      "w    w",
+      "w  www",
+      "wwww  ",
+    ],
+    4 : [
+      "wwww  ",
+      "w xw  ",
+      "w bwww",
+      "wnp  w",
+      "w    w",
+      "w  www",
+      "wwww  ",
+    ],
+    5 : [
+      "wwww  ",
+      "w xw  ",
+      "w bwww",
+      "wnp  w",
+      "w    w",
+      "w  www",
+      "wwww  ",
+    ],
   };
 
   static List<String> getLevel(int i){

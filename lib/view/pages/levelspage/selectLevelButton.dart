@@ -5,20 +5,24 @@ import 'package:provider/provider.dart';
 
 class SelectLevelButton extends StatelessWidget{
   final int levelNum;
-  SelectLevelButton(this.levelNum);
+  final bool isLevelAvailable;
+  SelectLevelButton(this.levelNum, this.isLevelAvailable);
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<NavigationModel>(context);
     return GestureDetector(
       onTap: (){
-        model.setCurrentLevel(levelNum);
-        Navigator.pushNamed(context, "/level");
+        if(isLevelAvailable){
+          model.setCurrentLevel(levelNum);
+          Navigator.pushNamed(context, "/level");
+        }
       },
       child: Container(
-        width: 100,
-        height: 100,
+        width: MediaQuery.of(context).size.width/5, //todo transfer to constants
+        height: MediaQuery.of(context).size.width/5,
         decoration: BoxDecoration(
           border: Border.all(color: Colors.black),
+          color: isLevelAvailable ? Colors.white : Colors.red,
         ),
         child: Center(
           child: Text(

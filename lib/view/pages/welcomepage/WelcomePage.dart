@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:game/controller/dao/FirebaseDao.dart';
+import 'package:game/controller/service/UserService.dart';
 import 'package:game/controller/service/sign_in.dart';
-import 'package:game/view/pages/mainmenu/mainMenu.dart';
 
 class WelcomePage extends StatelessWidget{
   @override
@@ -12,15 +12,9 @@ class WelcomePage extends StatelessWidget{
       child: Center(
         child:  FlatButton(
           onPressed: () {
-            signInWithGoogle().whenComplete(() {
-              FirebaseUserDao().create(googleSignIn.currentUser.id);
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) {
-                    return MainMenu();
-                  },
-                ),
-              );
+            signInWithGoogle().whenComplete(() {//todo handle error
+              UserService().registerNewUser();
+              Navigator.of(context).popAndPushNamed("/menu");
             });
           },
           child: Text("SIGN IN"),
