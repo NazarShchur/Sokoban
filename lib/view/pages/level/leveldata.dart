@@ -144,9 +144,13 @@ class LevelData {
     return isLevelPassed();
   }
 
-  void moveBack(){
+  bool moveBack(){
+    if(memento.getPlayerCoordinate() == getPlayerCoordinate()) {
+      return false;
+    }
     mapOfObjects = {};
     mapOfObjects.addAll(memento.mapOfObjects);
+    return true;
   }
 
   bool isBoxOnSpot(Coordinate boxCoordinate) => spots.contains(boxCoordinate);

@@ -23,4 +23,10 @@ class Results{
     );
   }
 
+  @override
+  String toString() {
+    return 'Results{_level: $_level, _moves: $_moves}';
+  }
+
+
 }

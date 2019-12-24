@@ -4,6 +4,8 @@ import 'package:game/controller/service/UserService.dart';
 import 'package:game/model/entity/User.dart';
 import 'package:game/view/data/Levels.dart';
 import 'package:game/view/pages/levelspage/selectLevelButton.dart';
+import 'package:game/view/state/UserModel.dart';
+import 'package:provider/provider.dart';
 
 class LevelsPage extends StatelessWidget {
   @override
@@ -18,6 +20,7 @@ class LevelsPage extends StatelessWidget {
         future: UserService().getCurrentUser(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
+           initUserModelBalance(context, snapshot.data.balance);
             return GridView.count(
               crossAxisCount: 5,
               children: List.generate(LevelsProvider.countOfLevels, (levelNum) {
@@ -35,5 +38,9 @@ class LevelsPage extends StatelessWidget {
 
   bool _isLevelAvailable(int levelNum, int userLastLevel) {
     return userLastLevel >= levelNum;
+  }
+
+  void initUserModelBalance(context, balance){
+    Provider.of<UserModel>(context).userBalance = Provider.of<UserModel>(context).userBalance??balance;
   }
 }

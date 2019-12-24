@@ -10,7 +10,7 @@ class UserService{
     return BigInt.parse(googleSignIn.currentUser.id);
   }
 
-  Future<void> registerNewUser() async{
+  Future<void> auth() async{
     if(await getCurrentUser() == null){
      FirebaseUserDao().create(googleSignIn.currentUser.id);
     }
@@ -28,5 +28,4 @@ class UserService{
       FirebaseUserDao().updateLastLevelById(currentUser.id, currentUser.lastLevel + 1);
     }
   }
-
 }

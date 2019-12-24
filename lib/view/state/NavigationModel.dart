@@ -1,16 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:game/view/data/Levels.dart';
 import 'package:game/view/pages/level/ResultsAlert.dart';
 import 'package:game/model/entity/results.dart';
 import 'package:game/view/state/pagesEnum.dart';
 
 class NavigationModel extends ChangeNotifier {
-  Pages currentPage = Pages.MENU;
-
-  void setCurrentPage(Pages toGo) {
-    currentPage = toGo;
-    notifyListeners();
-  }
 
   int _currentLevel = 1;
 
@@ -18,13 +13,17 @@ class NavigationModel extends ChangeNotifier {
     _currentLevel = i;
   }
   void startLevel(int levelNum) {
-    currentPage = Pages.LEVEL;
     _currentLevel = levelNum;
     notifyListeners();
   }
 
-  void nextLevel() {
-    _currentLevel++;
+  bool nextLevel() {
+    if(currentLevel < LevelsProvider.countOfLevels){
+      _currentLevel++;
+      return true;
+    }
+    return false;
+
   }
 
   get currentLevel => _currentLevel;
