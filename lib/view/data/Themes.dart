@@ -12,17 +12,19 @@ abstract class GameThemes{
     boxImgUrl: "$route/Box.png",
     backgroundImgUrl: "$route/standart_back.jpg",
     name: "Standart theme",
-    preview: "assets/images/floor.png"
+    preview: "$route/standart_preview.png",
+    floor: "$route/floor.png",
   );
   static final GameTheme marioTheme = GameTheme(
       markImgUrl: "$route/x-mark_mario.png",
-      readyBoxImgUrl: "$route/ReadyBox.png",
+      readyBoxImgUrl: "$route/readybox_mario.png",
       playerImgUrl: "$route/player_mario.png",
       wallImgUrl: "$route/wall_mario.png",
       boxImgUrl: "$route/box_mario.png",
       backgroundImgUrl: "$route/standart_back.jpg",
       name: "Mario theme",
-      preview: "assets/images/some_coins.png",
+      preview: "$route/mario_preview.png",
+      floor: "$route/floor.png",
 
   );
 

@@ -22,12 +22,11 @@ class UserModel extends ChangeNotifier{
     notifyListeners();
   }
   void initUserModel(User user){
-    if(userBalance == null || isUserChanged){
+    if(userBalance == null || isUserChanged) {
       userBalance = user.balance;
-      isUserChanged = false;
-    }
-    if(themes == null || isUserChanged){
-      themes = [...user.themes];
+      if (themes == null ) {
+        themes = [...user.themes];
+      }
       isUserChanged = false;
     }
   }

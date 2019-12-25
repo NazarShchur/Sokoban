@@ -11,12 +11,20 @@ class GameBox extends GameObject{
   GameBox(this.size, this.isOnSpot);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: size,
-      width: size,
-      child: Image(
-        image: AssetImage(isOnSpot ? theme.readyBoxImgUrl : theme.boxImgUrl),
-      ),
+    return Stack(
+      children: <Widget>[
+        Image(
+          width: size,
+          height: size,
+          image: AssetImage(theme.floor),
+        ),
+        Image(
+          width: size,
+          height: size,
+          image: AssetImage(isOnSpot ? theme.readyBoxImgUrl : theme.boxImgUrl),
+        ),
+
+      ],
     );
   }
 }

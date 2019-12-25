@@ -18,7 +18,6 @@ class LevelData {
 
 
   LevelData(double width, int levelNum) {
-    print(LevelsProvider.getLevel(levelNum));
     map.addAll(LevelsProvider.getLevel(levelNum));
     tileSize = width / map[0].length;
     mapOfObjects = {};

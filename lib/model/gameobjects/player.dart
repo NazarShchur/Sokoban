@@ -11,12 +11,20 @@ class PlayerObj extends GameObject {
   PlayerObj(this.tileSize);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: tileSize,
-      height: tileSize,
-      child: Image(
-        image: AssetImage(theme.playerImgUrl),
-      ),
+    return Stack(
+      children: <Widget>[
+        Image(
+          width: tileSize,
+          height: tileSize,
+          image: AssetImage(theme.floor),
+        ),
+        Image(
+            width: tileSize,
+            height: tileSize,
+            image: AssetImage(theme.playerImgUrl),
+          ),
+
+      ],
     );
   }
 }

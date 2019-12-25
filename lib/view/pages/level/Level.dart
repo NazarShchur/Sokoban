@@ -97,10 +97,11 @@ class LevelState extends State<Level> {
     RecordsService recordsService = RecordsService();
     recordsService.saveRecordIfBestForThisPlayer(data.results, userService.getCurrentUserId());
     _addUserMoneyIfFirstTimeWonLevel();
+    Provider.of<UserModel>(context).addBalance(Constants.ADD_MONEY_FOR_LEVEL);
     model.showResults(context, data.results);
   }
 
-  void _move(Direction direction, model, context) {
+  void _move(Direction direction, model, context) { //todo context and model no need
     setState(() {
       if (data.movePlayer(direction)) {
         _endLevel(model, context);

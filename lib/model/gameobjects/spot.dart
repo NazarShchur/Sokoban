@@ -9,6 +9,20 @@ class Spot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(width: tileSize, height: tileSize, child: Image(image: AssetImage(theme.markImgUrl),));
+    return Stack(
+      children: <Widget>[
+        Image(
+          width: tileSize,
+          height: tileSize,
+          image: AssetImage(theme.floor),
+        ),
+        Image(
+          width: tileSize,
+          height: tileSize,
+          image: AssetImage(theme.markImgUrl),
+        ),
+
+      ],
+    );
   }
 }

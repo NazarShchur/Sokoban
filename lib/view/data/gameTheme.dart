@@ -7,6 +7,7 @@ class GameTheme{
   String backgroundImgUrl;
   String name;
   String preview;
+  String floor;
 
-  GameTheme({this.preview, this.name, this.markImgUrl, this.playerImgUrl, this.readyBoxImgUrl, this.wallImgUrl, this.boxImgUrl, this.backgroundImgUrl});
+  GameTheme({this.floor, this.preview, this.name, this.markImgUrl, this.playerImgUrl, this.readyBoxImgUrl, this.wallImgUrl, this.boxImgUrl, this.backgroundImgUrl});
 }
