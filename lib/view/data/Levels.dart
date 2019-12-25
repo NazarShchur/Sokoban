@@ -46,6 +46,15 @@ abstract class LevelsProvider{
       "w  www",
       "wwww  ",
     ],
+    6 : [
+      "wwww  ",
+      "w xw  ",
+      "w bwww",
+      "wnp  w",
+      "w    w",
+      "w  www",
+      "wwww  ",
+    ],
     7 : [
       "wwww  ",
       "w xw  ",
@@ -74,15 +83,6 @@ abstract class LevelsProvider{
       "wwww  ",
     ],
     10 : [
-      "wwww  ",
-      "w xw  ",
-      "w bwww",
-      "wnp  w",
-      "w    w",
-      "w  www",
-      "wwww  ",
-    ],
-    11 : [
       "wwww  ",
       "w xw  ",
       "w bwww",

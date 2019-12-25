@@ -6,6 +6,7 @@ import 'package:game/model/entity/User.dart';
 import 'package:game/view/data/Constants.dart';
 import 'package:game/view/pages/levelspage/floatingActionNavigatorPop.dart';
 import 'package:game/view/pages/shoppage/buyCoinsTab.dart';
+import 'package:game/view/pages/shoppage/themePage.dart';
 import 'package:game/view/state/UserModel.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +30,7 @@ class ShopPageState extends State<ShopPage> {
           future: UserService().getCurrentUser(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.hasData) {
-              model.initBalance(snapshot.data.balance);
+              model.initUserModel(snapshot.data);
               return Scaffold(
                 backgroundColor: Colors.brown,
                 appBar: AppBar(
@@ -45,7 +46,7 @@ class ShopPageState extends State<ShopPage> {
                 ),
                 body: TabBarView(
                   children: [
-                    Icon(Icons.directions_transit),
+                    ThemeTab(),
                     BuyCoinsTab(),
                   ],
                 )

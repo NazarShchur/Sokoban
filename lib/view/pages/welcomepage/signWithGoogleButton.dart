@@ -12,14 +12,6 @@ class SignWithGoogleButton extends StatelessWidget {
       height: 70,
       decoration: BoxDecoration(
         color: Color(0xFFB4B8B7),
-//        boxShadow: [
-//          BoxShadow(
-//            color: Color(0xFFB4B8B7),
-//            offset: Offset.fromDirection(1),
-//            blurRadius: 1,
-//            spreadRadius: 1
-//          )
-//        ],
         borderRadius: BorderRadius.all(Radius.circular(5))
       ),
       child: FlatButton.icon(
@@ -51,7 +43,6 @@ class SignWithGoogleButton extends StatelessWidget {
 
   void _sign(context) {
     signInWithGoogle().whenComplete(() {
-      //todo handle error
       if(googleSignIn.currentUser!=null){
         UserService().auth();
         Navigator.of(context).popAndPushNamed("/menu");

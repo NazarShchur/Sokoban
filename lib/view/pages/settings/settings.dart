@@ -28,12 +28,6 @@ class _SettingsState extends State<Settings> {
                   .pushNamed("/"); //todo change theme, add about dialog
             },
           ),
-          FlatButton(child: Text("do memes"),
-            onPressed: () {
-            UserModel.theme = GameThemes.memeTheme;
-          },
-
-          )
         ]),
       ),
     );

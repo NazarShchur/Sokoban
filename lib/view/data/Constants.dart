@@ -9,4 +9,5 @@ abstract class Constants{
   static final Color buttonBorderColor = Color(0xFF989c9b);
   static final Color buttonBackColor = Color(0xFFB4B8B7);
   static final Color buttonTextColor = Colors.brown;
+  static const int PRICE_OF_THEME = 5000;
 }

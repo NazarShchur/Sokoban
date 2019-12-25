@@ -1,6 +1,7 @@
 import 'package:game/controller/dao/FireBaseUserDao.dart';
 import 'package:game/controller/service/sign_in.dart';
 import 'package:game/model/entity/User.dart';
+import 'package:game/view/data/Constants.dart';
 
 class UserService{
   Future<User> getCurrentUser(){
@@ -26,6 +27,15 @@ class UserService{
     User currentUser = await getCurrentUser();
     if(afterLevel == currentUser.lastLevel){
       FirebaseUserDao().updateLastLevelById(currentUser.id, currentUser.lastLevel + 1);
+    }
+  }
+
+  Future<void> addTheme(int theme) async{
+    FirebaseUserDao dao = FirebaseUserDao();
+    User user = await getCurrentUser();
+    if(!user.themes.contains(theme)){
+      addUserMoney(-Constants.PRICE_OF_THEME);
+      dao.createUserTheme(theme, user.id);
     }
   }
 }
