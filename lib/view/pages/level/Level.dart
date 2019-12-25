@@ -7,6 +7,7 @@ import 'package:game/model/gameobjects/direction.dart';
 import 'package:game/model/gameobjects/spot.dart';
 import 'package:game/view/data/Constants.dart';
 import 'package:game/view/state/NavigationModel.dart';
+import 'package:game/view/state/UserModel.dart';
 import 'package:provider/provider.dart';
 import 'package:swipedetector/swipedetector.dart';
 import 'levelAppBar.dart';
@@ -56,7 +57,7 @@ class LevelState extends State<Level> {
         child: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(Constants.CANDIES_BACKGROUND),
+                  image: AssetImage(UserModel.theme.backgroundImgUrl),
                   repeat: ImageRepeat.repeat
               )
           ),

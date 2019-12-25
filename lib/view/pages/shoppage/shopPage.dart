@@ -33,7 +33,7 @@ class ShopPageState extends State<ShopPage> {
                     child: Text("add money"),
                     onPressed: () {
                       model.addBalance(100);
-                      UserService().addUserMoney(100);
+                      UserService().addUserMoney(100);//todo different offers
                     },
                   )
                 ],

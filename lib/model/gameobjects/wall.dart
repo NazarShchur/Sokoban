@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:game/view/data/gameTheme.dart';
+import 'package:game/view/state/UserModel.dart';
 
 import 'object.dart';
 
 class Wall extends GameObject{
+  final GameTheme theme = UserModel.theme;
   final double size;
   Wall(this.size);
   @override
@@ -11,7 +14,7 @@ class Wall extends GameObject{
       height: size,
       width: size,
       child: Image(
-        image: AssetImage("assets/images/wall.png"),
+        image: AssetImage(theme.wallImgUrl),
       ),
     );
   }
