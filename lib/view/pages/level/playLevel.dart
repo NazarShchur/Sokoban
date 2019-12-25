@@ -15,7 +15,7 @@ class PlayLevel extends StatefulWidget{
 class PlayLevelState extends State<PlayLevel>{
   @override
   Widget build(BuildContext context) {
-    final model = Provider.of<NavigationModel>(context);
+    final model = Provider.of<NavigationModel>(context);//todo refactor
     Level level = Level(model.currentLevel);
     return level;
   }

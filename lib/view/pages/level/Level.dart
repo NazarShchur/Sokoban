@@ -34,6 +34,7 @@ class LevelState extends State<Level> {
     data = data == null ? LevelData(size, widget.levelNum) : data;
     final boxSize = size / data.map[0].length;
     return Scaffold(
+      appBar: LevelAppBar(data.results, _moveBack, _restartLevel),
       body: SwipeDetector(
         swipeConfiguration: SwipeConfiguration(
             verticalSwipeMinVelocity: 1000.0,
@@ -61,22 +62,23 @@ class LevelState extends State<Level> {
                   repeat: ImageRepeat.repeat
               )
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(data.map.length, (i) {
-              return Row(
-                children: List.generate(data.map[0].length, (j) {
-                  return data.mapOfObjects[Coordinate(j, i)] != null ? data
-                      .mapOfObjects[Coordinate(j, i)]
-                      : data.spots.contains(Coordinate(j, i)) ? Spot(boxSize)
-                      : Container(width: boxSize, height: boxSize);
-                }),
-              );
-            }),
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(data.map.length, (i) {
+                return Row(
+                  children: List.generate(data.map[0].length, (j) {
+                    return data.mapOfObjects[Coordinate(j, i)] != null ? data
+                        .mapOfObjects[Coordinate(j, i)]
+                        : data.spots.contains(Coordinate(j, i)) ? Spot(boxSize)
+                        : Container(width: boxSize, height: boxSize, child: Image.asset("assets/images/floor.png"),);
+                  }),
+                );
+              }),
+            ),
           ),
         ),
       ),
-      appBar: LevelAppBar(data.results, _moveBack, _restartLevel),
     );
   }
 
@@ -113,7 +115,7 @@ class LevelState extends State<Level> {
     }
   }
 
-  void _restartLevel(){
+  void _restartLevel(context){
     setState(() {
       data = null;
     });

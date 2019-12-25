@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:game/view/data/Constants.dart';
 import 'package:game/view/state/NavigationModel.dart';
 import 'package:provider/provider.dart';
 
@@ -17,16 +18,22 @@ class SelectLevelButton extends StatelessWidget{
           Navigator.pushNamed(context, "/level");
         }
       },
-      child: Container(
-        width: MediaQuery.of(context).size.width/5, //todo transfer to constants
-        height: MediaQuery.of(context).size.width/5,
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.black),
-          color: isLevelAvailable ? Colors.white : Colors.red,
-        ),
-        child: Center(
-          child: Text(
-            "$levelNum"
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(color: Constants.buttonBorderColor, width: 10),
+            color: isLevelAvailable ? Constants.buttonBackColor : Constants.buttonBorderColor,
+          ),
+          child: Center(
+            child: Text(
+              "$levelNum",
+              style: TextStyle(
+                color: Constants.buttonTextColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 26
+              ),
+            ),
           ),
         ),
       ),

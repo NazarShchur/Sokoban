@@ -1,56 +1,75 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:game/model/entity/results.dart';
 import 'package:game/view/data/Constants.dart';
+import 'package:game/view/data/fonts.dart';
+import 'package:game/view/pages/level/levelAppBarButton.dart';
 import 'package:game/view/state/UserModel.dart';
 import 'package:provider/provider.dart';
-class LevelAppBar extends StatelessWidget implements PreferredSizeWidget{
+
+class LevelAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Results results;
   final Function moveBack;
   final Function restartLevel;
+
   LevelAppBar(this.results, this.moveBack, this.restartLevel);
+
   @override
   Size get preferredSize => Size.fromHeight(57);
+
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<UserModel>(context);
     return AppBar(
-      iconTheme: IconThemeData(
-        color: Colors.black
+      leading: Container(
+        decoration: BoxDecoration(
+            border: Border.all(color: Constants.buttonBorderColor, width: 5),
+            color: Constants.buttonBackColor),
+        child: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () {
+            _onTapLeading(context);
+          },
+        ),
       ),
-      textTheme: TextTheme(
-        title: TextStyle(
-          color: Colors.black
-        )
-      ),
-      backgroundColor: Colors.white,
+      iconTheme: IconThemeData(color: Colors.brown, size: 30),
+      textTheme: TextTheme(title: TextStyle(color: Colors.brown)),
+      backgroundColor: Constants.buttonBackColor,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text("moves : ${results.moves}"),
-          Text("money : ${model.userBalance}")
+          Row(children:[Icon(MyFonts.footprints), Text("  ${results.moves}"),]),
+          Row(children:[Icon(FontAwesomeIcons.bitcoin), Text("  ${model.userBalance}")],),
         ],
       ),
       actions: [
-        IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: model.userBalance >= Constants.COST_OF_TURN_BACK ? Colors.black : Colors.grey,
-          ),
-          onPressed: (){
-            if(model.userBalance >= Constants.COST_OF_TURN_BACK){
-              moveBack(model);
-            }
-          }
+        LevelAppBarButton(
+          icon: Icons.arrow_back,
+          onTap: _onTapBack,
+          iconColor: model.userBalance >= Constants.COST_OF_TURN_BACK
+              ? Colors.brown
+              : Colors.grey,
         ),
-        IconButton(
-            icon: Icon(
-                Icons.refresh
-            ),
-            onPressed: restartLevel
-        )
+        SizedBox(
+          width: 10,
+        ),
+        LevelAppBarButton(
+            icon: Icons.refresh,
+            onTap: restartLevel,
+            iconColor: Colors.brown),
       ],
     );
   }
 
+  void _onTapLeading(context) {
+    Navigator.pop(context);
+  }
+
+  void _onTapBack(context) {
+    final model = Provider.of<UserModel>(context);
+    if (model.userBalance >= Constants.COST_OF_TURN_BACK) {
+      moveBack(model);
+    }
+  }
 }
