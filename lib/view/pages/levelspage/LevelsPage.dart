@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:game/controller/service/UserService.dart';
 import 'package:game/model/entity/User.dart';
+import 'package:game/view/data/Constants.dart';
 import 'package:game/view/data/Levels.dart';
+import 'package:game/view/pages/levelspage/floatingActionNavigatorPop.dart';
 import 'package:game/view/pages/levelspage/selectLevelButton.dart';
 import 'package:game/view/state/UserModel.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +29,7 @@ class LevelsPage extends StatelessWidget {
         duration: tween.duration,
         builder: (context, animation) {
           return Scaffold(
+            floatingActionButton: FloatingActionNavigatorPop(),
             backgroundColor: animation["color1"],
               body: FutureBuilder<User>(
                 future: UserService().getCurrentUser(),

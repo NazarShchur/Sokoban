@@ -33,8 +33,8 @@ class LevelAppBar extends StatelessWidget implements PreferredSizeWidget {
           },
         ),
       ),
-      iconTheme: IconThemeData(color: Colors.brown, size: 30),
-      textTheme: TextTheme(title: TextStyle(color: Colors.brown)),
+      iconTheme: IconThemeData(color: Colors.white, size: 30),
+      textTheme: TextTheme(title: TextStyle(color: Colors.white)),
       backgroundColor: Constants.buttonBackColor,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -48,8 +48,8 @@ class LevelAppBar extends StatelessWidget implements PreferredSizeWidget {
           icon: Icons.arrow_back,
           onTap: _onTapBack,
           iconColor: model.userBalance >= Constants.COST_OF_TURN_BACK
-              ? Colors.brown
-              : Colors.grey,
+              ? Colors.white
+              : Constants.buttonBackColor,
         ),
         SizedBox(
           width: 10,
@@ -57,7 +57,7 @@ class LevelAppBar extends StatelessWidget implements PreferredSizeWidget {
         LevelAppBarButton(
             icon: Icons.refresh,
             onTap: restartLevel,
-            iconColor: Colors.brown),
+            iconColor: Colors.white),
       ],
     );
   }

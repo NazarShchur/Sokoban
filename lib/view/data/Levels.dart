@@ -11,7 +11,7 @@ abstract class LevelsProvider{
     ],
     2 : [
       "wwwwww",
-      " w   w",
+      "ww   w",
       "wwxw w",
       "w    w",
       "w  b w",
