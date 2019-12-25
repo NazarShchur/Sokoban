@@ -71,7 +71,7 @@ class LevelState extends State<Level> {
                     return data.mapOfObjects[Coordinate(j, i)] != null ? data
                         .mapOfObjects[Coordinate(j, i)]
                         : data.spots.contains(Coordinate(j, i)) ? Spot(boxSize)
-                        : Container(width: boxSize, height: boxSize, child: Image.asset("assets/images/floor.png"),);
+                        : Container(width: boxSize, height: boxSize, child: Image.asset(UserModel.theme.floor),);
                   }),
                 );
               }),
