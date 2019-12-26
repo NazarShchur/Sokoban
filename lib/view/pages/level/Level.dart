@@ -37,10 +37,12 @@ class LevelState extends State<Level> {
       appBar: LevelAppBar(data.results, _moveBack, _restartLevel),
       body: SwipeDetector(
         swipeConfiguration: SwipeConfiguration(
-            verticalSwipeMinVelocity: 1000.0,
-            verticalSwipeMinDisplacement: 1.0,
-            horizontalSwipeMinDisplacement: 1.0,
-            horizontalSwipeMinVelocity: 1000.0
+            verticalSwipeMinVelocity: 1,
+            verticalSwipeMinDisplacement: 1,
+            verticalSwipeMaxWidthThreshold: 100,
+            horizontalSwipeMinDisplacement: 1,
+            horizontalSwipeMinVelocity: 1,
+            horizontalSwipeMaxHeightThreshold: 100,
         ),
         onSwipeDown: () {
           _move(Direction.DOWN, model, context);

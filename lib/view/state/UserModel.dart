@@ -15,7 +15,9 @@ class UserModel extends ChangeNotifier{
     userBalance += toAdd;
     notifyListeners();
   }
-
+  void notify(){
+    notifyListeners();
+  }
   void setTheme(int themeId){
     selectedTheme = themeId;
     theme = GameThemes.themes[themeId];

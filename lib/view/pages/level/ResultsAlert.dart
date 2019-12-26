@@ -4,6 +4,7 @@ import 'package:game/controller/service/RecordsService.dart';
 import 'package:game/controller/service/UserService.dart';
 import 'package:game/model/entity/results.dart';
 import 'package:game/view/state/NavigationModel.dart';
+import 'package:game/view/state/UserModel.dart';
 import 'package:provider/provider.dart';
 
 class ResultsAlert extends StatelessWidget{
@@ -46,7 +47,7 @@ class ResultsAlert extends StatelessWidget{
         ),
         FlatButton(
           onPressed: () {
-            Navigator.popUntil(context, ModalRoute.withName("/levels"));//todo handle routing back to level
+            Navigator.popUntil(context, ModalRoute.withName("/levels"));
           },
           child: Text("menu"),
 

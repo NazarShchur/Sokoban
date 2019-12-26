@@ -32,7 +32,7 @@ class SelectThemeButton extends StatelessWidget{
             color: Color.fromRGBO(156, 156, 156, 0.8),
             width: MediaQuery.of(context).size.width - 100,
             height: MediaQuery.of(context).size.width - 100,
-            child: Center(child: Icon(Icons.lock, color: Color.fromRGBO(156, 156, 156, 0.8), size: 100,),),
+            child: Center(child: Icon(Icons.lock, color:  Color.fromRGBO(255, 255, 255, 0.7), size: 100,),),
           ),
         ],
       ),
