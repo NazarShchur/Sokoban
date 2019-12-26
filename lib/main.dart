@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:game/view/pages/level/playLevel.dart';
+import 'package:game/view/pages/level/Level.dart';
+import 'package:game/view/pages/level/ResultsPage.dart';
 import 'package:game/view/pages/levelspage/LevelsPage.dart';
 import 'package:game/view/pages/mainmenu/mainMenu.dart';
 import 'package:game/view/pages/settings/settings.dart';
@@ -33,7 +34,7 @@ class SokobanState extends State<Sokoban> {
     Pages.RECORDS: Container(),
     Pages.SETTINGS: Container(),
     Pages.LEVELS: LevelsPage(),
-    Pages.LEVEL: PlayLevel(),
+    Pages.LEVEL: Level(),
   };
 
   @override
@@ -43,10 +44,11 @@ class SokobanState extends State<Sokoban> {
       home: WelcomePage(),
       routes: {
         '/levels': (context) => LevelsPage(),
-        "/level": (context) => PlayLevel(),
+        "/level": (context) => Level(),
         "/menu": (context) => MainMenu(),
         "/shop": (context) => ShopPage(),
-        "/settings": (context) => Settings()
+        "/settings": (context) => Settings(),
+        "/results" : (context) => ResultsPage(),
       },
     );
   }

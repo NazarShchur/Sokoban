@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:game/view/data/Levels.dart';
-import 'package:game/view/pages/level/ResultsAlert.dart';
+import 'package:game/view/pages/level/ResultsPage.dart';
 import 'package:game/model/entity/results.dart';
 import 'package:game/view/state/pagesEnum.dart';
 
@@ -27,12 +27,4 @@ class NavigationModel extends ChangeNotifier {
   }
 
   get currentLevel => _currentLevel;
-
-  void showResults(BuildContext context, Results results) {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return ResultsAlert(results);
-        });
-  }
 }
