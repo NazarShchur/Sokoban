@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:game/controller/service/sign_in.dart';
 import 'package:game/view/pages/levelspage/floatingActionNavigatorPop.dart';
 import 'package:game/view/pages/settings/GoogleUserString.dart';
 import 'package:game/view/pages/settings/SettingsTumbButton.dart';

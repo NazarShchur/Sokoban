@@ -64,6 +64,7 @@ class LevelAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   void _onTapLeading(context) {
     Navigator.pop(context);
+    Navigator.popAndPushNamed(context, "/levels");
   }
 
   void _onTapBack(context) {
